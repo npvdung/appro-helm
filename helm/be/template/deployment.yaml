@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: { { include "be.fullname" . } }
+  name: {{ include "be.fullname" . }}
   labels:
-    app: { { include "be.name" . } }
+    app: {{ include "be.name" . }}
 spec:
-  replicas: { { .Values.replicaCount } }
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: { { include "be.name" . } }
+      app: {{ include "be.name" . }}
   template:
     metadata:
       labels:
-        app: { { include "be.name" . } }
+        app: {{ include "be.name" . }}
     spec:
       containers:
-        - name: { { include "be.name" . } }
+        - name: {{ include "be.name" . }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          imagePullPolicy: { { .Values.image.pullPolicy } }
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
-            - containerPort: { { .Values.env.PORT | int } }
+            - containerPort: {{ .Values.env.PORT | int }}
           env:
             - name: PORT
               value: "{{ .Values.env.PORT }}"
