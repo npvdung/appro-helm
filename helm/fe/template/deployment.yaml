@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: { { include "fe.fullname" . } }
+  labels:
+    app: { { include "fe.name" . } }
+spec:
+  replicas: { { .Values.replicaCount } }
+  selector:
+    matchLabels:
+      app: { { include "fe.name" . } }
+  template:
+    metadata:
+      labels:
+        app: { { include "fe.name" . } }
+    spec:
+      containers:
+        - name: { { include "fe.name" . } }
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: { { .Values.image.pullPolicy } }
+          ports:
+            - containerPort: { { .Values.service.port | int } }
