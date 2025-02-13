@@ -922,50 +922,18 @@ readReplicas:
   ## @param readReplicas.lifecycleHooks for the PostgreSQL read only container to automate configuration before or after startup
   ##
   lifecycleHooks: {}
-  ## PostgreSQL read only resource requests and limits
-  ## ref: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
-  ## @param readReplicas.resourcesPreset Set container resources according to one common preset (allowed values: none, nano, micro, small, medium, large, xlarge, 2xlarge). This is ignored if readReplicas.resources is set (readReplicas.resources is recommended for production).
-  ## More information: https://github.com/bitnami/charts/blob/main/bitnami/common/templates/_resources.tpl#L15
-  ##
+
   resourcesPreset: "nano"
-  ## @param readReplicas.resources Set container requests and limits for different resources like CPU or memory (essential for production workloads)
-  ## Example:
-  ## resources:
-  ##   requests:
-  ##     cpu: 2
-  ##     memory: 512Mi
-  ##   limits:
-  ##     cpu: 3
-  ##     memory: 1024Mi
-  ##
+
   resources: {}
-  ## Pod Security Context
-  ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
-  ## @param readReplicas.podSecurityContext.enabled Enable security context
-  ## @param readReplicas.podSecurityContext.fsGroupChangePolicy Set filesystem group change policy
-  ## @param readReplicas.podSecurityContext.sysctls Set kernel settings using the sysctl interface
-  ## @param readReplicas.podSecurityContext.supplementalGroups Set filesystem extra groups
-  ## @param readReplicas.podSecurityContext.fsGroup Group ID for the pod
-  ##
+
   podSecurityContext:
     enabled: true
     fsGroupChangePolicy: Always
     sysctls: []
     supplementalGroups: []
     fsGroup: 1001
-  ## Container Security Context
-  ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
-  ## @param readReplicas.containerSecurityContext.enabled Enabled containers' Security Context
-  ## @param readReplicas.containerSecurityContext.seLinuxOptions [object,nullable] Set SELinux options in container
-  ## @param readReplicas.containerSecurityContext.runAsUser Set containers' Security Context runAsUser
-  ## @param readReplicas.containerSecurityContext.runAsGroup Set containers' Security Context runAsGroup
-  ## @param readReplicas.containerSecurityContext.runAsNonRoot Set container's Security Context runAsNonRoot
-  ## @param readReplicas.containerSecurityContext.privileged Set container's Security Context privileged
-  ## @param readReplicas.containerSecurityContext.readOnlyRootFilesystem Set container's Security Context readOnlyRootFilesystem
-  ## @param readReplicas.containerSecurityContext.allowPrivilegeEscalation Set container's Security Context allowPrivilegeEscalation
-  ## @param readReplicas.containerSecurityContext.capabilities.drop List of capabilities to be dropped
-  ## @param readReplicas.containerSecurityContext.seccompProfile.type Set container's Security Context seccomp profile
-  ##
+
   containerSecurityContext:
     enabled: true
     seLinuxOptions: {}

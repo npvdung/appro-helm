@@ -22,4 +22,4 @@ spec:
             - containerPort: {{ .Values.service.port | int }}
           env:
             - name: REACT_APP_API_URL
-              value: "http://be-be:5000"
+              value: "http://localhost:5000"
