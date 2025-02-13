@@ -1,22 +1,8 @@
 # Sử dụng fullnameOverride để service có tên là "db" (như BE mong đợi)
 fullnameOverride: db
 
-postgresqlUsername: myuser
-postgresqlPassword: mypassword
-postgresqlDatabase: db
-
+username: myuser
+password: mypassword
+database: db
 # Vô hiệu hóa persistent storage (cho mục đích demo, không dùng trong production)
-primary:
-  persistence:
-    enabled: false
-
 # Cung cấp script khởi tạo
-initdbScripts:
-  init.sql: |
-    \connect db;
-    CREATE TABLE IF NOT EXISTS versions (
-        id SERIAL PRIMARY KEY,
-        version_text TEXT NOT NULL
-    );
-
-    INSERT INTO versions (version_text) VALUES ('version1') ON CONFLICT DO NOTHING;
