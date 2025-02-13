@@ -1,9 +1,10 @@
 # Sử dụng fullnameOverride để service có tên là "db" (như BE mong đợi)
 fullnameOverride: db
-postgresql:
-  auth:
-    username: myuser
-    password: mypassword
-    database: db
+global:
+  postgresql:
+    auth:
+      username: myuser
+      password: mypassword
+      database: db
 # Vô hiệu hóa persistent storage (cho mục đích demo, không dùng trong production)
 # Cung cấp script khởi tạo
