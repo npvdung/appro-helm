@@ -20,3 +20,6 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - containerPort: {{ .Values.service.port | int }}
+          env:
+            - name: REACT_APP_API_URL
+              value: "http://be-be:5000"
