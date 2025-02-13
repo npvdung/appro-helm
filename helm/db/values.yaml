@@ -1,6 +1,4 @@
 # Sử dụng fullnameOverride để service có tên là "db" (như BE mong đợi)
-fullnameOverride: db
-
 postgresqlUsername: myuser
 postgresqlPassword: mypassword
 postgresqlDatabase: version_db
