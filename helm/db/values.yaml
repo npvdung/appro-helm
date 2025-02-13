@@ -3,7 +3,7 @@ fullnameOverride: db
 
 postgresqlUsername: myuser
 postgresqlPassword: mypassword
-postgresqlDatabase: version_db
+postgresqlDatabase: db
 
 # Vô hiệu hóa persistent storage (cho mục đích demo, không dùng trong production)
 primary:
