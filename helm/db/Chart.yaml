@@ -2,7 +2,7 @@ apiVersion: v2
 name: db
 description: A Helm wrapper chart for PostgreSQL (Bitnami)
 version: 0.1.0
-appVersion: "12"
+appVersion: "16"
 dependencies:
   - name: postgresql
     version: "12.10.2"
