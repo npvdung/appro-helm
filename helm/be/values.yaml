@@ -1,9 +1,9 @@
 replicaCount: 1
 
 image:
-  repository: be
+  repository: acrdungnpv.azurecr.io/be
   pullPolicy: IfNotPresent
-  tag: "latest"
+  tag: "v1.0.5"
 
 service:
   type: NodePort

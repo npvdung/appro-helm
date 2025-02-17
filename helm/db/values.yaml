@@ -17,8 +17,8 @@ global:
   ## @param global.defaultStorageClass Global default StorageClass for Persistent Volume(s)
   ## @param global.storageClass DEPRECATED: use global.defaultStorageClass instead
   ##
-  defaultStorageClass: ""
-  storageClass: ""
+  defaultStorageClass: "custom-azure-disk"
+  storageClass: "custom-azure-disk"
   ## Security parameters
   ##
   security:
@@ -774,31 +774,12 @@ primary:
   ## PostgreSQL Primary persistence configuration
   ##
   persistence:
-    ## @param primary.persistence.enabled Enable PostgreSQL Primary data persistence using PVC
-    ##
-    enabled: false
-    ## @param primary.persistence.volumeName Name to assign the volume
-    ##
+    enabled: true
     volumeName: "data"
-    ## @param primary.persistence.existingClaim Name of an existing PVC to use
-    ##
     existingClaim: ""
-    ## @param primary.persistence.mountPath The path the volume will be mounted at
-    ## Note: useful when using custom PostgreSQL images
-    ##
     mountPath: /bitnami/postgresql
-    ## @param primary.persistence.subPath The subdirectory of the volume to mount to
-    ## Useful in dev environments and one PV for multiple services
-    ##
     subPath: ""
-    ## @param primary.persistence.storageClass PVC Storage Class for PostgreSQL Primary data volume
-    ## If defined, storageClassName: <storageClass>
-    ## If set to "-", storageClassName: "", which disables dynamic provisioning
-    ## If undefined (the default) or set to null, no storageClassName spec is
-    ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
-    ##   GKE, AWS & OpenStack)
-    ##
-    storageClass: ""
+    storageClass: "custom-azure-disk"
     ## @param primary.persistence.accessModes PVC Access Mode for PostgreSQL volume
     ##
     accessModes:
@@ -1217,7 +1198,7 @@ readReplicas:
     ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
     ##   GKE, AWS & OpenStack)
     ##
-    storageClass: ""
+    storageClass: "custom-azure-disk"
     ## @param readReplicas.persistence.accessModes PVC Access Mode for PostgreSQL volume
     ##
     accessModes:
@@ -1368,7 +1349,7 @@ backup:
       ## If undefined (the default) or set to null, no storageClassName spec is
       ## set, choosing the default provisioner.
       ##
-      storageClass: ""
+      storageClass: "custom-azure-disk"
       ## @param backup.cronjob.storage.accessModes PV Access Mode
       ##
       accessModes:

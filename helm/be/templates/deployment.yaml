@@ -14,6 +14,8 @@ spec:
       labels:
         app: {{ include "be.name" . }}
     spec:
+      imagePullSecrets:
+        - name: acr-secret
       containers:
         - name: {{ include "be.name" . }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
