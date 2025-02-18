@@ -10,4 +10,4 @@ service:
   port: 3000
 
 env:
-  reactApiUrl: "http://be-be:5000"
+  reactApiUrl: "http://4.144.141.103/api"
