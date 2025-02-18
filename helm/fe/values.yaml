@@ -3,7 +3,7 @@ replicaCount: 1
 image:
   repository: acrdungnpv.azurecr.io/fe
   pullPolicy: IfNotPresent
-  tag: "1.1"
+  tag: "1.2"
 
 service:
   type: ClusterIP
